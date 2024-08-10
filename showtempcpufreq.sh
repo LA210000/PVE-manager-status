@@ -186,7 +186,7 @@ cat > $contentforpvejs << 'EOF'
 			}
 			
 			console.log(c)
-			c = c.join(' | ');
+			c = c.join(' <br> ');
 			return c;
 		 }
 	},
@@ -218,7 +218,9 @@ cat > $contentforpvejs << 'EOF'
 			let watt= v.match(/(?<=^pkgwatt:)[\d.]+$/im);
 			watt = watt? " | 功耗: " + (watt[0]/1).toFixed(1) + 'W' : '';
 			
-			return `${m2} | MAX: ${max} | MIN: ${min}${watt} | 调速器: ${gov}`
+			return `<div style="text-align: right;">
+            ${m2} <br> MAX: ${max} | MIN: ${min}${watt} | 调速器: ${gov}
+        </div>`;
 		 }
 	},
 EOF
